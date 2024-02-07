@@ -5,6 +5,8 @@
   },
   "name": "doodhwala",
   "version": "1.0.0",
+  "homepage": "hhttps://poonamw67.github.io/Doodhwala/", 
+
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
