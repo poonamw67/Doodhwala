@@ -1,16 +1,18 @@
+import { useState } from "react";
 
 const NavMenu = () =>
 {
+    const [isActive, setIsActive] = useState(true);
     return (
-    <div className='Navbody'>
-        <div className='menu'>
-        <div className='Navcontainer'>
-            <div className='toggle'></div>
-        </div>
-        <span className='hidden'><a href="#">Home </a></span>
-        <span className='hidden'><a href="#">About </a></span>
-        <span className="hidden"><a href="#">Info</a></span>
-        <span className="hidden"><a href="#">Contact</a></span>
+    <div className='navbody'>
+        <div className={isActive ? 'menu' : 'menu expanded'} >
+            <div className={isActive ? 'Navcontainer' : 'Navcontainer close'} >
+                <div className={isActive?  'toggle' : 'toggle close'} onClick={()=> { setIsActive(!isActive) }}></div>
+                {console.log(isActive)}
+            </div>
+            <span className={isActive?  'hidden' : null}><a href="#">How it works </a></span>
+            <span className={isActive?  'hidden' : null}><a href="#">Who are we </a></span>
+            <span className={isActive?  'hidden' : null}><a href="#">Where we are</a></span>
         </div>
     </div>
     )

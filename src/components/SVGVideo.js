@@ -2,7 +2,6 @@
 const SVGVideo = () =>
 {
   return (
-    <>
     <div className='SVGVideo'>
       <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -19,16 +18,6 @@ const SVGVideo = () =>
         </circle>
       </svg>
     </div>
-
-    <div className='Navbody'>
-      <div className='menu'>
-        <div className='Navcontainer'>
-          <div className='toggle'></div>
-        </div><span className='hidden'><a href="#">Home </a></span><span className='hidden'><a href="#">About </a></span>
-        <span class="hidden"><a href="#">Info</a></span><span className="hidden"><a href="#">Contact</a></span>
-      </div>
-    </div>
-    </>
   )
 }
 
