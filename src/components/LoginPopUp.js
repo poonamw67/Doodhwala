@@ -1,8 +1,26 @@
 import { useState} from "react";
+import ProfileCreation from "./ProfileCreation"; 
 
-function LoginPopUp(props) {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+const LoginPopUp = (props) => {
+    const [isNewUser, setIsNewUser] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [otp, setOTP] = useState('')
+    const [showOTP, setShowOTP] = useState(false);
+
+    function showOTPScreen()
+    {
+        //check if phone number exist in DB
+        setIsNewUser(!isNewUser);
+        if(!isNewUser)
+        {
+            setShowOTP(!showOTP);
+        }
+    }
+
+    function validateOTP()
+    {
+        //Validate OTP
+    }
 
     function handleLogin(e) {
         e.preventDefault()
@@ -10,25 +28,43 @@ function LoginPopUp(props) {
         props.toggle()
     }
 
-    return (
+    return(
         <div className="popup">
             <div className="popup-inner">
-                <h2>Login</h2>
-                <form onSubmit={handleLogin}>
+            <button className="close-btn" onClick={props.toggle}></button>
+                <h2>{isNewUser ? "Create Profile" : "Login"}</h2>
+                <form>
+                {!showOTP &&
+                 (
+                    <>
                     <label>
-                        Username:
-                        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                        Phone number
+                        <input type="text" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
                     </label>
+                    <button onClick={showOTPScreen}>Send code</button>
+                    </>
+                 )
+                }
+                {!isNewUser && showOTP && (
+                    <>
                     <label>
-                        Password:
-                        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                        OTP:
+                        <input type="text" value={otp} onChange={e => otp(e.target.value)} />
                     </label>
-                    <button type="submit">Login</button>
+                    <button onClick={validateOTP}>Validate OTP</button>
+                    </>
+                    )
+                }
+                {isNewUser && (
+                    <ProfileCreation toggle={props.toggle} />
+                )
+                }
                 </form>
-                <button onClick={props.toggle}>Close</button>
             </div>
         </div>
-    )
+        )        
+        
+        
 }
 
 export default LoginPopUp
