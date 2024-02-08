@@ -9,7 +9,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --dist-dir build",
+    "build": "parcel build --public-url . index.html --dist-dir build",
     "test": "jest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
