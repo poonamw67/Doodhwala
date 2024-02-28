@@ -17,6 +17,7 @@ const SVGVideo = () =>
           />
         </circle>
       </svg>
+      <div className="u-line"></div>
     </div>
   )
 }

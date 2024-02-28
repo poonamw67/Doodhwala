@@ -9,8 +9,10 @@ const AppLayout = () =>
 {
     return (
       <div className='app'>
-        <Header/>
-        <Body/>
+        <div className='u-sheet'>
+          <Header/>
+          <Body/>
+        </div>
         <Footer/>
       </div>
     )
